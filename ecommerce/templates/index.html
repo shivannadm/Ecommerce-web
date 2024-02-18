@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Home {% endblock title %}
+{% block title %}Home{% endblock title %}
 
 {% block body %}
 
-<!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+{% comment %} <!-- ======= Portfolio Section ======= --> {% endcomment %}
+  <section id="portfolio" class="portfolio">
     <div class="container">
 
       <div class="section-title">
@@ -120,6 +120,7 @@
       </div>
 
     </div>
-  </section><!-- End Portfolio Section -->
+  </section>
+  {% comment %} <!-- End Portfolio Section --> {% endcomment %}
 
 {% endblock body %}
