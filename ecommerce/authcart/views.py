@@ -8,4 +8,4 @@ def handlelogin(request):
     return render(request,"authentication/login.html")
 
 def handlelogout(request):
-    return redirect('/authcart/login')
+    return redirect('/auth/login')
