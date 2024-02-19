@@ -1,5 +1,5 @@
 from django.urls import path
-from auth import views
+from authcart import views
 
 urlpatterns = [
     path('signup/',views.signup,name="signup"),
