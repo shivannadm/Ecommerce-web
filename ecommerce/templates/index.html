@@ -3,7 +3,7 @@
 {% block title %}Home{% endblock title %}
 {% block content %}
 
-<div class="card bg-light p-5">
+{% comment %} <div class="card bg-light p-5">
   <h3 class="text-dark">Signup</h3>
   <form action = "/auth/signup/" method = "post"> {% csrf_token %}
     <br>
@@ -29,7 +29,7 @@
     Already User?<a href="/auth/login/">Login</a>
     <br>
   </form>
-</div>
+</div> {% endcomment %}
 
 {% endblock content %}
 
