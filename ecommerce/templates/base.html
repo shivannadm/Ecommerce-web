@@ -91,7 +91,13 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      {% block content %}{% endblock content %}
+      {% block content %}
+      
+      {% for message in message %}
+      <div class="alert alert-{{message.tags}}">
+      
+      
+      {% endblock content %}
     </div>
   </section><!-- End Hero -->
 
