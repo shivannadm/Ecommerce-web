@@ -7,7 +7,7 @@ from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from .utils import TokenGenerator,generate_token
 # from django.utils.encoding import force_bytes,force_text,DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
-# from django.conf import settings
+from django.conf import settings
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -40,9 +40,30 @@ def signup(request):
 
         })
 
-
-        return HttpResponse("User created",email)
+        email_message = EmailMessage(email_subject,message,settings.EMAIL_HOST_USER,[email])
+        email_message.send()
+        messages.success(request,f"Activate Your Account by clicking the link in your gmail {message}")
+        return redirect('/auth/login/')
     return render(request,"signup.html")
+
+
+    #     return HttpResponse("User created",email)
+    # return render(request,"signup.html")
+
+class ActivateAccountView(View):
+    def get(self,request,uidb64,token):
+        try:
+            uid=force_text(urlsafe_base64_decode(uidb64))
+            user=User.objects.get(pk=uid)
+        except Exception as identifier:
+            user=None
+        if user is not None and generate_token.check_token(user,token):
+            user.is_active=True
+            user.save()
+            messages.info(request,"Account Activated Successfully")
+            return redirect('/auth/login')
+        return render(request,'activatefail.html')
+
 
 def handlelogin(request):
     return render(request,"login.html")
