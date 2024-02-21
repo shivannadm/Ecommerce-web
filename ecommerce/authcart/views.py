@@ -16,7 +16,7 @@ def signup(request):
         confirm_password=request.POST['pass2']
         if password!=confirm_password:
             messages.warning(request,"Password is Not Matching")
-            return render(request,'auth/signup.html')                   
+            return render(request,'signup.html')                   
         
         try:
             if User.objects.get(username=email):
