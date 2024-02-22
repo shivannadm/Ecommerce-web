@@ -127,7 +127,7 @@ USE_TZ = True
 
 
 # SENDING EMAILS
-
+ 
 
 EMAIL_HOST='smtpout.secureserver.net'
 EMAIL_HOST_USER='shivannadm6@gmail.com'
