@@ -11,7 +11,7 @@ from django.contrib import messages
 # from django.utils.http import urlsafe_base64_decode
 # from django.utils.encoding import force_str
 # from django.contrib.auth.tokens import PasswordResetTokenGenerator 
-# from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 def signup(request):
@@ -37,20 +37,20 @@ def signup(request):
 
 
 def handlelogin(request):
-    # if request.method=="POST":
+    if request.method=="POST":
 
-    #     username=request.POST['email']
-    #     userpassword=request.POST['pass1']
-    #     myuser=authenticate(username=username,password=userpassword)
+        username=request.POST['email']
+        userpassword=request.POST['pass1']
+        myuser=authenticate(username=username,password=userpassword)
 
-    #     if myuser is not None:
-    #         login(request,myuser)
-    #         messages.success(request,"Login Success")
-    #         return redirect('/')
+        if myuser is not None:
+            login(request,myuser)
+            messages.success(request,"Login Success")
+            return redirect('/')
 
-    #     else:
-    #         messages.error(request,"Invalid Credentials")
-    #         return redirect('/auth/login')
+        else:
+            messages.error(request,"Invalid Credentials")
+            return redirect('/auth/login')
 
     return render(request,'login.html')  
 
