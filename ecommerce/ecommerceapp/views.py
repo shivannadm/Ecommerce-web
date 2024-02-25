@@ -124,7 +124,7 @@ def about(request):
 #     return render(request, 'paymentstatus.html', {'response': response_dict})
 
 
-# def profile(request):
+def profile(request):
 #     if not request.user.is_authenticated:
 #         messages.warning(request,"Login & Try Again")
 #         return redirect('/auth/login')
@@ -144,4 +144,4 @@ def about(request):
    
 #     context ={"items":items,"status":status}
 #     # print(currentuser)
-    # return render(request,"profile.html",context)
+    return render(request,"profile.html",context)
