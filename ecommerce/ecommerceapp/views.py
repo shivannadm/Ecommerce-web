@@ -1,6 +1,6 @@
 from django.shortcuts import render
-# from ecommerceapp.models import Contact,Product,OrderUpdate,Orders
-# from django.contrib import messages
+from ecommerceapp.models import Contact,Product,OrderUpdate,Orders
+from django.contrib import messages
 # from math import ceil
 # from ecommerceapp import keys
 # from django.conf import settings
@@ -28,15 +28,15 @@ def index(request):
 
     
 def contact(request):
-#     if request.method=="POST":
-#         name=request.POST.get("name")
-#         email=request.POST.get("email")
-#         desc=request.POST.get("desc")
-#         pnumber=request.POST.get("pnumber")
-#         myquery=Contact(name=name,email=email,desc=desc,phonenumber=pnumber)
-#         myquery.save()
-#         messages.info(request,"we will get back to you soon..")
-#         return render(request,"contact.html")
+    if request.method=="POST":
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        desc=request.POST.get("desc")
+        pnumber=request.POST.get("pnumber")
+        myquery=Contact(name=name,email=email,desc=desc,phonenumber=pnumber)
+        myquery.save()
+        messages.info(request,"we will get back to you soon..")
+        return render(request,"contact.html")
 
 
     return render(request,"contact.html")
