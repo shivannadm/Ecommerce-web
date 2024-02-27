@@ -9,7 +9,7 @@ class Contact(models.Model):
     phonenumber=models.IntegerField()
 
     def __int__(self):
-        return self.name
+        return self.id
 
 
 class Product(models.Model):
@@ -19,7 +19,7 @@ class Product(models.Model):
     subcategory = models.CharField(max_length=50, default="")
     price = models.IntegerField(default=0)
     desc = models.CharField(max_length=300)
-    # image = models.ImageField(upload_to='images/images')
+    image = models.ImageField(upload_to='images/images')
 
     def __str__(self):
         return self.product_name
