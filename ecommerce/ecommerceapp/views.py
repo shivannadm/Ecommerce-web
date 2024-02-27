@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ecommerceapp.models import Contact,Product,OrderUpdate,Orders
+from ecommerceapp.models import Contact,Product
 from django.contrib import messages
 from math import ceil
 # from ecommerceapp import keys
