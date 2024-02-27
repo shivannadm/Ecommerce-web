@@ -3,69 +3,66 @@
 {% block title %}
 Home
 {% endblock title %}
+
 {% block content %}
-
 <h1>Welcome to Dhamaka Sale</h1>
-
 {% endblock content %}
 
 {% block body %}
 {% load static %}
 
-    <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      {% for message in messages %}
-
-      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <strong>{{message}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endfor %}
-
-      <div class="section-title">
-        <h2>Welcome to Shop</h2>
-        <h3>Check our <span>Products</span></h3>
-      </div>
-
-      {% for Product, range, nSlides in allProds %}
-      <h3 class="my-3 text-center text-success bg-light">
-        {{product.0.category}} Flashsale
-      </h3>
-  
-      <div class="container">
-        <div class="row">
-  
-          {% for i in product %}
-          <div class="col-md-3 mt-3">
-            <img src="/media/{{i.image}}" class="card-img-top" alt="not found" height="200px" width="150px" />
-            <div class="card-body">
-              <h5 class="card-title mt-2" id="namepr{{i.id}}">{{i.product_name}}</h5>
-              <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-              <h6 class="card-title mb-3">
-                Price:<span id="pricepr{{i.id}}">{{i.price}}</span>
-              </h6>
-              <span id="divpr{{i.id}}" class="divpr">
-                <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
-                  AddToCart 
-                </button>
-              </span>
-  
-              <a href="/media/{{i.image}}">
-                <button class="btn btn-dark btn-sm cart">View</button></a
-              >
-              {% comment %} <i class="fa-solid fa-eye"></i> <i class="fa-solid fa-cart-shopping"></i> {% endcomment %}
-            </div>
-          </div>
-  
-          {% endfor %}
-        </div>
-      </div>
-      {% endfor %}
-
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  </section>
-  
-    <!-- End Portfolio Section -->
+    {% endfor %}
+
+    <div class="section-title">
+      <h2>Welcome to Shop</h2>
+      <h3>Check our <span>Products</span></h3>
+    </div>
+
+    {% for product, range, nSlides in allProds %}
+    <h3 class="my-3 text-center text-success bg-light">
+      {{ product.0.category }} Flashsale
+    </h3>
+
+    <div class="container">
+      <div class="row">
+
+        {% for item in product %}
+        <div class="col-md-3 mt-3">
+          <img src="/media/{{ item.image }}" class="card-img-top" alt="not found" height="200px" width="150px" />
+          <div class="card-body">
+            <h5 class="card-title mt-2" id="namepr{{ item.id }}">{{ item.product_name }}</h5>
+            <p class="card-text">{{ item.desc|slice:"0:53" }}...</p>
+            <h6 class="card-title">
+              Price:<span id="pricepr{{ item.id }}">{{ item.price }}</span>
+            </h6>
+            <span id="divpr{{ item.id }}" class="divpr">
+              <button id="pr{{ item.id }}" class="btn btn-danger cart btn-sm mt-0">
+                AddToCart 
+              </button> 
+            </span>
+
+            <a href="/media/{{ item.image }}">
+              <button class="btn btn-dark btn-sm cart">View</button>
+            </a>
+            {% comment %} <i class="fa-solid fa-eye"></i> <i class="fa-solid fa-cart-shopping"></i> {% endcomment %}
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+<!-- End Portfolio Section -->
 
 {% endblock body %}

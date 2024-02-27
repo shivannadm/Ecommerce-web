@@ -23,7 +23,7 @@ def index(request):
 
     params= {'allProds':allProds}
 
-    return render(request,"index.html")
+    return render(request,"index.html",params)
 
     
 def contact(request):
