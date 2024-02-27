@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from ecommerceapp.models import Contact,Product,OrderUpdate,Orders
 from django.contrib import messages
-# from math import ceil
+from math import ceil
 # from ecommerceapp import keys
 # from django.conf import settings
 # MERCHANT_KEY=keys.MK
@@ -11,18 +11,17 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
+    allProds = []
+    catprods = Product.objects.values('category','id')
+    print(catprods)
+    cats = {item['category'] for item in catprods}
+    for cat in cats:
+        prod= Product.objects.filter(category=cat)
+        n=len(prod)
+        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        allProds.append([prod, range(1, nSlides), nSlides])
 
-#     allProds = []
-#     catprods = Product.objects.values('category','id')
-#     print(catprods)
-#     cats = {item['category'] for item in catprods}
-#     for cat in cats:
-#         prod= Product.objects.filter(category=cat)
-#         n=len(prod)
-#         nSlides = n // 4 + ceil((n / 4) - (n // 4))
-#         allProds.append([prod, range(1, nSlides), nSlides])
-
-#     params= {'allProds':allProds}
+    params= {'allProds':allProds}
 
     return render(request,"index.html")
 
