@@ -125,7 +125,7 @@ def handlerequest(request):
     return render(request, 'paymentstatus.html', {'response': response_dict})
 
 
-def profile(request):
+# def profile(request):
 #     if not request.user.is_authenticated:
 #         messages.warning(request,"Login & Try Again")
 #         return redirect('/auth/login')
@@ -145,4 +145,33 @@ def profile(request):
    
 #     context ={"items":items,"status":status}
 #     # print(currentuser)
-    return render(request,"profile.html",context)
+#     return render(request,"profile.html",context)
+
+def profile(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, "Login & Try Again")
+        return redirect('/auth/login')
+    
+    currentuser = request.user.username
+    items = Orders.objects.filter(email=currentuser)
+    rid = ""
+    for i in items:
+        print(i.oid)
+        # print(i.order_id)
+        myid = i.oid
+        rid = myid.replace("ShopyCart", "")
+        print(rid)
+    
+    if rid:  # Check if rid is not an empty string
+        try:
+            status = OrderUpdate.objects.filter(order_id=int(rid))
+            for j in status:
+                print(j.update_desc)
+        except ValueError:
+            # Handle the case where rid cannot be converted to an integer
+            messages.error(request, "Invalid order ID")
+            return redirect('/error')  # Redirect to an error page or handle as appropriate
+    
+    context = {"items": items, "status": status if rid else None}  # If rid is empty, status will be None
+    # print(currentuser)
+    return render(request, "profile.html", context)
