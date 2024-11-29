@@ -10,5 +10,3 @@ urlpatterns = [
     path('handlerequest/', views.handlerequest, name="HandleRequest"),
 
 ]
-
-
