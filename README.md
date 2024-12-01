@@ -24,3 +24,21 @@ This project's commitment to customer relationship management is reflected in it
 - `templates/`: HTML templates for the frontend interface.
 - `static/`: CSS and static files for styling.
 - `db/`: MySQL database schema and ER diagrams.
+
+  
+## Admin Panel
+
+The admin panel provides full control over E-Commerce Web system:
+- **Manage Users**: Add or modify user Privileges.
+- **Manage Groups**: Update group and information.
+- **Manage Orders**: Add or remove orders even through the admin panel.
+- **Manage Payments**: Real time payment update.
+- **Customer Management**: View and manage customer details and Orders.
+
+## Database Operations
+
+This project explores MySQL integration by implementing CRUD operations for all major entities:
+- **Groups**: Create, read, update, and delete groups.
+- **Products**: Add, view, modify, or remove product details.
+- **Orders**: Manage order information.
+- **Delivery Note**: Delivery updates and payment details.
