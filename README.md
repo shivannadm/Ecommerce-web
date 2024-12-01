@@ -16,14 +16,14 @@ At its core, the system addresses key facets of E-Commerce operations, ranging f
 
 - **Backend**: Django, JavaScript
 - **Frontend**: HTML, CSS
-- **Database**: MySQL
+- **Database**: SQL
 
 ## Project Structure
 
 - `ecommerce/`: Contains the main Django project files.
 - `templates/`: HTML templates for the frontend interface.
 - `static/`: CSS and static files for styling.
-- `db/`: MySQL database schema and ER diagrams.
+- `db/`: SQL database schema and ER diagrams.
 
   
 ## Admin Panel
