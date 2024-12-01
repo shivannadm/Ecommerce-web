@@ -1,4 +1,5 @@
-  <h3>Technology Stack</h3><hr>
+  <h3>Technology Stack</h3>
+  <br>
 <ul>
   <li>Backend: Django</li>
   <li>Frontend: HTML, CSS</li>
