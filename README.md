@@ -8,7 +8,7 @@ At its core, the system addresses key facets of E-Commerce operations, ranging f
 
 ## Key Features
 
-- **Order Selection**: Users can select multiple orders, from different sectors(i.e Electronics, Digitals, Cloths...).
+- **Order Selection**: Users can select multiple orders, from different sectors(i.e Electronics, Digitals, Cloths and etc.).
 - **Admin Panel**: The admin can manage user activities, orders, products, and Marchants, as well as access customer details.
 - **Payment System**: Users can pay online after the authentication is completed.
 
